@@ -29,18 +29,18 @@ public class BinaryTreeNode extends TreeNode {
     public void preFixPrint() {
         System.out.print(label);
         if (!Objects.isNull(left)) {
-            left.inFixPrint();
+            left.preFixPrint();
         }
         if (!Objects.isNull(right))
-            right.inFixPrint();
+            right.preFixPrint();
     }
 
     @Override
     public void postFixPrint() {
         if (!Objects.isNull(left))
-            left.inFixPrint();
+            left.postFixPrint();
         if (!Objects.isNull(right))
-            right.inFixPrint();
+            right.postFixPrint();
         System.out.print(label);
     }
 

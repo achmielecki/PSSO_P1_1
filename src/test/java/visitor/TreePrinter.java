@@ -1,7 +1,6 @@
-package nopattern;
+package visitor;
 
-import com.sun.source.tree.Tree;
-import nopattern.TreeNode;
+import visitor.operator.BinaryOperatorNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +30,20 @@ public class TreePrinter {
                     next.add(null);
                     next.add(null);
                 } else {
-                    String aa = n.label;
+                    String aa = n.getLabel();
                     line.add(aa);
                     if (aa.length() > widest) widest = aa.length();
 
-                    next.add((TreeNode) n.getLeft());
-                    next.add((TreeNode) n.getRight());
+                    if(n instanceof NumericNode) {
+                        next.add(null);
+                        next.add(null);
 
-                    if (n.getLeft() != null) nn++;
-                    if (n.getRight() != null) nn++;
+                    } else {
+                        next.add(((BinaryOperatorNode) n).getLeft());
+                        next.add(((BinaryOperatorNode) n).getRight());
+                        nn++;
+                        nn++;
+                    }
                 }
             }
 

@@ -9,7 +9,6 @@ public class ParserTest {
     private static void test1() {
         Parser parser = new Parser();
         TreeNode rootNode = parser.parse("( 9 % 2 ) + ( 2 - 3 * 4 ) / 5");// spaces are vital!!;
-
         TreePrinter.print(rootNode);
         System.out.println("infix:");
         rootNode.inFixPrint();
@@ -23,6 +22,7 @@ public class ParserTest {
         System.out.println("evaluate:");
         System.out.println("result: " + rootNode.evaluate());
         System.out.println();
+        assert rootNode.evaluate() == -1;
     }
 
     public static void test2() {
@@ -41,5 +41,6 @@ public class ParserTest {
         System.out.println("evaluate:");
         System.out.println("result: " + rootNode.evaluate());
         System.out.println();
+        assert rootNode.evaluate() == -1;
     }
 }
